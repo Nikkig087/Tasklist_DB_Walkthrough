@@ -6,7 +6,8 @@ from taskmanager.models import Category, Task
 # This will be used to target a function called 'home', which will just return the rendered_template of "base.html" that we will create shortly.
 @app.route("/")
 def home():
-    return render_template("tasks.html")
+    tasks =list(Task.query.order_by(Task.id).all())
+    return render_template("tasks.html", tasks = tasks)
 
 # Whenever we call this function by clicking the navbar link for Categories, it will query the database and retrieve all records from this table, then sort them by the category name.
 @app.route("/categories")
