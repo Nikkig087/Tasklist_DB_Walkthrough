@@ -32,11 +32,40 @@
             </div>
         </div>
 
+ <!-- is urgent -->
+        <div class="row">
+            <div class="input-field col s12">
+                <div class="switch">
+                    <i class="fas fa-exclamation-circle prefix light-blue-text text-darken-4"></i>
+                    <label for="is_urgent">
+                        <input id="is_urgent" name="is_urgent" type="checkbox">
+                        <span class="lever"></span>
+                        Is Urgent
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- category id -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
+                <select id="category_id" name="category_id" class="validate" required>
+                    <option value="" disabled selected>Choose Category</option>
+
+                    <!--for each catergory in this loop we need to create a new option in the dropdown-->
+                    {% for category in categories %}
+                        <option value="{{ category.id }}">{{ category.category_name }}</option>
+                    {% endfor %}
+                </select>
+                <label for="category_id">Category</label>
+            </div>
+        </div>        
+
         <!-- submit button -->
         <div class="row">
             <div class="col s12 center-align">
                 <button type="submit" class="btn-large light-blue darken-1">
-                    Edit Task <i class="fas fa-plus-square right"></i>
+                    Add Task <i class="fas fa-plus-square right"></i>
                 </button>
             </div>
         </div>
